@@ -1,0 +1,17 @@
+name: Tag Trigger Workflow
+
+on:
+  push:
+    tags:
+      - 'release_packer.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print Tag
+        run: echo ${{ github.ref }}
